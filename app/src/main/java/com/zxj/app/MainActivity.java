@@ -9,9 +9,9 @@ import android.widget.Toast;
 
 import com.zxj.annotations.BindView;
 import com.zxj.bufferknife.BufferKnife;
+import com.zxj.bufferknife.annotation.OnClick;
 
 public class MainActivity extends AppCompatActivity {
-
 
     @BindView(R.id.btn)
     Button button;
@@ -28,5 +28,18 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,"aaaa",Toast.LENGTH_SHORT).show();
             }
         });
+
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                return false;
+            }
+        });
+    }
+
+
+    @OnClick(values = {R.id.btn1})
+    public void onClicked(View v){
+        Toast.makeText(MainActivity.this,"bbbb",Toast.LENGTH_SHORT).show();
     }
 }
