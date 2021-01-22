@@ -1,0 +1,22 @@
+import javax.tools.JavaCompiler
+
+plugins {
+    id 'java-library'
+}
+
+//指定编译的编码
+tasks.withType(JavaCompiler){
+    options.encoding = "UTF-8"
+}
+
+dependencies {
+    compileOnly 'com.google.auto.service:auto-service:1.0-rc4' //compileOnly 为了在源文件中可以使用@AutoService
+    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc4' // 为了触发注解解释器 ，Google 公司出品，用于自动为 JAVA Processor 生成 META-INF 信息 ，完成自定义注解的注册
+    implementation 'com.squareup:javapoet:1.8.0' //用于生成.java文件 ，大名鼎鼎的 squareup 公司出品，封装了一套生成 .java 源文件的 API
+    implementation project(':Annotations')
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}

@@ -1,2 +1,5 @@
+include ':Bufferknife'
+include ':Processor'
+include ':Annotations'
 include ':app'
 rootProject.name = "BufferKnife"

@@ -1,0 +1,14 @@
+import javax.tools.JavaCompiler
+
+plugins {
+    id 'java-library'
+}
+//指定编译的编码
+tasks.withType(JavaCompiler){
+    options.encoding = "UTF-8"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
